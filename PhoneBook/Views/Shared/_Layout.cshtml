@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>@ViewData["Title"] - PhoneBook</title>
+	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+	<link rel="stylesheet" href="~/PhoneBook.styles.css" asp-append-version="true" />
+</head>
+<body>
+	<div class="wrapper">
+		<header>
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-12 d-flex header__container align-items-center justify-content-between">
+						<div class="header__logo d-flex ">
+							<div class="header__logo-img flex-shrink-0">
+								<img src="~/images/logo.jpg" alt="Логотип" />
+							</div>
+							<p class="header__logo-text">
+								Дагестанский Государственный Университет
+							</p>
+						</div>
+						<div class="header__user">
+							<div class="header__user-pic">
+								<img src="~/images/user.svg" alt="Пользователь" />
+							</div>
+							<div class="header__user-text">
+								@if (ViewData["Auth"] != null)
+								{
+									<span class="auth">@ViewData["Auth"]</span>
+								}
+								else
+								{
+									<span>Авторизоваться</span>
+								}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+		<div class="container-fluid content">
+			<main role="main" class="pb-2">
+				@RenderBody()
+			</main>
+		</div>
+		<footer>
+			<div class="container-fluid">
+				<div class="row justify-content-center">
+					<div class="col-md-4">
+						<div class="text-center">
+							Дагестанский Государственный Университет
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+
+	<div class="popup">
+		<div class="popup__area"></div>
+		<div class="popup__inner">
+			<img class="close-popup" src="~/images/close.svg" alt="" />
+			<div class="popup__header">
+				<h4>Авторизация</h4>
+				<p>Добро пожаловать! Пожалуйста, авторизируйтесь для продолжения работы в качестве администратора</p>
+			</div>
+			<div class="popup__body">
+				<form asp-action="Login" method="post" role="form">
+					<div class="form-group mb-3">
+						<div class="">
+							<input type="text" name="email" class="form-control" required placeholder="Введите ваш Email" />
+						</div>
+					</div>
+					<div class="form-group mb-3">
+						<div class="">
+							<input type="password" name="password" class="form-control" required placeholder="Введите ваш пароль" />
+						</div>
+					</div>
+					<div class="form-group text-right">
+						<input type="submit" class="btn btn-primary" value="Войти" />
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<script src="~/lib/jquery/dist/jquery-3.6.0.min.js"></script>
+	<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="~/js/site.js" asp-append-version="true"></script>
+	@await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
