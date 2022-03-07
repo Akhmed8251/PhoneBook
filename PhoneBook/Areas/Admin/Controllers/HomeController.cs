@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using PhoneBook.Models;
+using PhoneBook.ViewModels;
 
 namespace PhoneBook.Areas.Admin.Controllers
 {
@@ -16,7 +17,15 @@ namespace PhoneBook.Areas.Admin.Controllers
         }
         public IActionResult Index()
         {
-            return View(db.Structures.ToList());
+            if (!User.Identity.IsAuthenticated) return RedirectToAction("Login", "Account");
+
+            AdminViewModel adminViewModel = new AdminViewModel 
+            {
+                Structures = db.Structures.ToList(),
+                Users = db.Users.ToList()
+            };
+
+            return View(adminViewModel);
         }
     }
 }

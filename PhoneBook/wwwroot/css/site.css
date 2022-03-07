@@ -74,6 +74,11 @@ header {
     display: flex;
     align-items: center;
     cursor: pointer;
+    transition: color .3s;
+}
+
+.header__user a {
+    color: inherit;
 }
 
 .header__user-logo {
@@ -82,8 +87,7 @@ header {
 }
 
 .header__user-text {
-    font-size: 12px;
-    transition: color .3s;
+    font-size: 12px;  
 }
 
 .title {
@@ -272,7 +276,7 @@ footer {
     color: #ee2a24 !important;
 }
 
-.popup {
+/*.popup {
     position: fixed;
     left: 0;
     top: 0;
@@ -305,7 +309,7 @@ footer {
     border-radius: 12px;
     display: flex;
     flex-direction: column;
-}
+}*/
 
 .close-popup {
     position: absolute;
@@ -322,7 +326,7 @@ footer {
     overflow: hidden;
 }
 
-.popup__header {
+/*.popup__header {
     background-color: #0079c1;
     color: #fff;
     height: 157px;
@@ -336,7 +340,7 @@ footer {
 
 .popup__body {
     padding: 30px 63px 40px 53px;
-}
+}*/
 
 @media (max-width: 768px) {
     .header__user,
@@ -345,8 +349,8 @@ footer {
     }    
 }
 
-@media (max-width: 525px) {
+/*@media (max-width: 525px) {
     .popup__header {
         padding: 0 58px 19px 22px;
     }
-}
+}*/

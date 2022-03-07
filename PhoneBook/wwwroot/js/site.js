@@ -71,17 +71,6 @@ $("#structure").on('click', function () {
     });
 });
 
-$(".header__user-text").on('click', function (e) {
-    if ($(".header__user-text span").hasClass("auth")) {
-        return false;
-    }
-
-    e.preventDefault();
-    $('.popup').fadeIn(400);
-    $('body').addClass('no-scroll');
-});
-
-
 $('.close-popup, .popup__area').on('click', function () {
     $('.popup').fadeOut(400);
     $('body').removeClass('no-scroll');
