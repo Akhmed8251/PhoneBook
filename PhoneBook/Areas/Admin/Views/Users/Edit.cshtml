@@ -1,7 +1,9 @@
 ﻿@model PhoneBook.ViewModels.EditUserViewModel
 @{
-    ViewBag.Title = "Редактирование пользователя";
+    string title = "Редактирование пользователя";
+    ViewBag.Title = title;
 }
+<h2>@title</h2>
 <form asp-action="Edit" asp-controller="Users">
     <div asp-validation-summary="All" class="text-danger"></div>
     <div class="form-group">
