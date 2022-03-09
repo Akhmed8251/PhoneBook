@@ -16,9 +16,6 @@ namespace PhoneBook
                     var userManager = services.GetRequiredService<UserManager<User>>();
                     var rolesManager = services.GetRequiredService<RoleManager<IdentityRole>>();
                     await RoleInitializer.InitializeAsync(userManager, rolesManager);
-
-                    var context = services.GetRequiredService<PhoneBookContext>();
-                    PhoneBookData.Initialize(context);
                 }
                 catch (Exception ex)
                 {

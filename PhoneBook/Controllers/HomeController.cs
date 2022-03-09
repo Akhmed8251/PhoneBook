@@ -38,16 +38,5 @@ namespace PhoneBook.Controllers
                       
             return PartialView(allcustomers);
         }
-
-        //[HttpPost]
-        //public IActionResult Login()
-        //{
-        //    //if (email == "forgy@mail.ru" && password == "9876001238")
-        //    //{
-        //    //    return RedirectToRoute("Admin", new { area = "admin", controller = "Home", action = "Index" });
-        //    //}
-        //    return RedirectToRoute("default", new { controller = "Account", action = "Login" });
-        //}
-
     }
 }
